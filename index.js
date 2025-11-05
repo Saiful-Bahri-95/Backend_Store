@@ -1,6 +1,7 @@
 // import express module
 const express = require('express');
 const mongoose = require('mongoose');
+const bannerRouter = require('./routes/banner')
 
 // import auth router
 const authRouter = require('./routes/auth');
@@ -14,6 +15,7 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(authRouter);
+app.use(bannerRouter);
 
 // mongoose connection string
 const DB = "mongodb+srv://aldi_store_api:aldiprasetyo@cluster0.5snyeic.mongodb.net/storeDB?retryWrites=true&w=majority&appName=Cluster0";
