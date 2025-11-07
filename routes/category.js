@@ -5,10 +5,10 @@ const categoryRouter = express.Router();
 
 categoryRouter.post('/api/category', async (req, res) =>{
     try {
-        const {image} = req.body;
-        const banner = new Banner({image});
-        await banner.save();
-        return res.status(201).send(banner);
+        const {name, image, banner} = req.body;
+        const category = new Category({name, image, banner});
+        await category.save();
+        return res.status(201).send(category);
     } catch (e) {
         res.status(400).json({error:e.message});
     }
@@ -16,11 +16,11 @@ categoryRouter.post('/api/category', async (req, res) =>{
 
 categoryRouter.get('/api/category', async (req, res) => {
     try {
-        const banners = await Banner.find();
-        return res.status(200).send(banners);
+        const categories = await Category.find();
+        res.status(200).json({categories});
     } catch (e) {
         res.status(500).json({error:e.message});
     }
 });
 
-module.exports = bannerRouter;
+module.exports = categoryRouter;
