@@ -6,6 +6,7 @@ const categoryRouter = require('./routes/category');
 const subcategoryRouter = require('./routes/sub_category');
 const productRouter = require('./routes/product');
 const productReviewRouter = require('./routes/prooduct_review');
+const cors = require('cors');
 
 // import auth router
 const authRouter = require('./routes/auth');
@@ -21,6 +22,11 @@ const DB = "mongodb+srv://aldi_store_api:aldiprasetyo@cluster0.5snyeic.mongodb.n
 
 // middleware
 app.use(express.json());
+
+// enable CORS for all routes
+app.use(cors());
+
+// use routes
 app.use(authRouter);
 app.use(bannerRouter);
 app.use(categoryRouter);
