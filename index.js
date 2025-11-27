@@ -23,7 +23,7 @@ const DB = "mongodb+srv://aldi_store_api:aldiprasetyo@cluster0.5snyeic.mongodb.n
 // middleware
 app.use(express.json());
 
-// enable CORS for all routes
+// enable CORS for all routes and origins (domains)
 app.use(cors());
 
 // use routes
